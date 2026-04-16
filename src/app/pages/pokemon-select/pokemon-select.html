@@ -1,0 +1,18 @@
+@if (loading()) {
+<app-loading></app-loading>
+} @else {
+<div class="header-container">
+  <div class="title-container">
+    <a href="/">
+      <img src="/svgs/arrow_back.svg" alt="arrow back icon" width="24" height="24">
+    </a>
+    <div class="title">¡Ya casi términamos!</div>
+  </div>
+  <p class="subtitle">
+    Revisa la información, y completa lo solicitado.
+  </p>
+</div>
+
+<app-pokemon-grid [user]="user()" [pokemons]="pokemonList()" />
+
+}

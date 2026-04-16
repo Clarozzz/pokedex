@@ -1,0 +1,71 @@
+<div class="container">
+  <div class="form-container">
+
+    <div class="image-container">
+      <div class="image-text">
+        Imágen perfil
+      </div>
+      <div class="avatar-circle">
+        @if (imagePreview()) {
+        <img [src]="imagePreview()" alt="Image Preview" class="image-preview">
+        } @else {
+        <img src="/svgs/user.svg" alt="Default user icon">
+        }
+      </div>
+      <label class="upload-button">
+        @if (imagePreview()) {
+        <span class="text">{{ fileName() }}</span>
+        <span (click)="clearImage($event)">
+          <img src="/svgs/remove.svg" alt="remove icon">
+        </span>
+        } @else {
+        <span class="text">Adjunta una foto</span>
+        <span>
+          <img src="/svgs/cloud_upload.svg" alt="cloud upload icon">
+        </span>
+        <input type="file" (change)="onFileSelected($event)" hidden>
+        }
+      </label>
+    </div>
+
+    <div class="inputs-container">
+      <h2 class="title">Tu información</h2>
+      <p class="subtitle">Completa la siguiente información para completar tu perfil</p>
+
+      <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+        <div class="floating-group">
+          <input type="text" id="name" placeholder=" " formControlName="name">
+          <label for="nombre">Nombre*</label>
+        </div>
+        <div class="floating-group">
+          <input type="text" id="hobby" placeholder=" " formControlName="hobby" list="hobbyOptions">
+          <label for="hobby">Pasatiempo favorito</label>
+
+          <datalist id="hobbyOptions">
+            <option value="Jugar Fútbol">
+            <option value="Jugar Basquetball">
+            <option value="Jugar Tennis">
+            <option value="Jugar Voleibol">
+            <option value="Jugar Fifa">
+            <option value="Jugar Videojuegos">
+          </datalist>
+        </div>
+        <div class="floating-group calendar-input">
+          <input type="date" id="birthdate" placeholder=" " formControlName="birthdate" [max]="maxDate()">
+          <label for="birthdate">Cumpleaños*</label>
+        </div>
+        <div class="floating-group">
+          <input type="text" id="dui" placeholder=" " formControlName="dui" inputmode="numeric" maxlength="10" (input)="formatDUI($event)">
+          <label for="dui">Documento*</label>
+        </div>
+
+        <div class="button-container">
+          <button type="submit" class="register-button" [class]="isFormValid() ? '' : 'active-button'" [disabled]="isFormValid()">
+            Continuar
+          </button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>

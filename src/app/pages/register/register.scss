@@ -1,0 +1,22 @@
+.header-container {
+  margin-top: 77px;
+}
+
+.title-container {
+  margin-left: 62px;
+  display: flex;
+  align-items: center;
+  color: var(--pokemon-blue);
+  gap: 4px;
+}
+
+.title {
+  font-size: 35px;
+  font-weight: 600;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  margin-left: 90px;
+  margin-top: 9px;
+}

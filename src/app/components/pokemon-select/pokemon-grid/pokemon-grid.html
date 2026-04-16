@@ -1,0 +1,77 @@
+<div class="container">
+  <div class="form-container">
+
+    <div class="image-container">
+      <div class="image-text">
+        {{ user()?.name }}
+      </div>
+      <div class="avatar-circle">
+        <img [src]="user()?.profileImage" alt="Image Preview" class="image-preview">
+      </div>
+      <div class="user-info">
+
+        <div class="info-row">
+          <span class="row-title">
+            Pasatiempo:
+          </span>
+          <span class="row-data">
+            {{ user()?.hobby }}
+          </span>
+        </div>
+
+        <div class="info-row">
+          <span class="row-title">
+            Edad:
+          </span>
+          <span class="row-data">
+            {{ user()?.age }}
+          </span>
+        </div>
+
+        @if (user()?.dui) {
+        <div class="info-row">
+          <span class="row-title">
+            DUI:
+          </span>
+          <span class="row-data">
+            {{ user()?.dui }}
+          </span>
+        </div>
+        }
+
+      </div>
+    </div>
+
+    <div class="inputs-container">
+      <h2 class="title">Pokémon</h2>
+      <p class="subtitle">Selecciona 3 Pokémon para que sean parte de tu equipo</p>
+      <div class="search-container">
+        <img src="/svgs/search.svg" alt="" width="18">
+        <input type="text" placeholder="Buscar por índice, nombre..." class="search-input"
+          (input)="filterPokemon($event)">
+      </div>
+
+      <div class="pokemon-grid">
+        @for (poke of filteredPokemons(); track poke.id) {
+        <div class="poke-card" [class.selected]="selectedIds().includes(poke.id)" [class.disabled]="isMaxedOut(poke.id)"
+          (click)="togglePokemon(poke.id)">
+
+          <img [src]="poke.image" [alt]="poke.name" class="poke-img">
+
+          <div class="info-badge">
+            <span class="number">#{{ poke.id.toString().padStart(3, '0') }}</span>
+            <span class="name">{{ poke.name }}</span>
+          </div>
+        </div>
+        }
+      </div>
+
+      <div class="button-container">
+        <button class="register-button" [disabled]="isButtonDisabled()" (click)="onSubmit()">
+          Continuar
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>

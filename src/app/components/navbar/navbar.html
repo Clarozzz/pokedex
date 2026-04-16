@@ -1,0 +1,12 @@
+<div class="container">
+  <img src="images/logo.webp" class="logo" />
+  @if (isRegistered()) {
+  <div class="left-container">
+    <a href="/profile" class="user-btn">
+      <span class="btn-text">{{ user()?.name }}</span>
+      <img src="/svgs/chevron_down.svg" alt="chevron down icon">
+    </a>
+    <img src="/svgs/search.svg" alt="search icon">
+  </div>
+  }
+</div>

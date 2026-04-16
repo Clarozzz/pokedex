@@ -1,0 +1,82 @@
+<div class="container">
+  <div class="form-container">
+
+    <div class="image-container">
+      <div class="user-badge">
+        <span>
+          Entrenador
+        </span>
+        <img src="/svgs/badge.svg" alt="">
+      </div>
+      <div class="avatar-circle">
+        <img [src]="userData().profileImage" alt="Image Preview" class="image-preview">
+      </div>
+      <div class="user-info">
+
+        <div class="info-row">
+          <span class="row-title">
+            Pasatiempo:
+          </span>
+          <span class="row-data">
+            {{ userData().hobby }}
+          </span>
+        </div>
+
+        <div class="info-row">
+          <span class="row-title">
+            Edad:
+          </span>
+          <span class="row-data">
+            {{ userData().age }}
+          </span>
+        </div>
+
+        @if (userData().dui) {
+        <div class="info-row">
+          <span class="row-title">
+            DUI:
+          </span>
+          <span class="row-data">
+            {{ userData().dui }}
+          </span>
+        </div>
+        }
+
+      </div>
+    </div>
+
+    <div class="inputs-container">
+      <div class="title-and-button">
+        <h2 class="title">Mis Pokémon</h2>
+        <a class="edit-user-btn" href="/select-pokemons">
+          <img src="/svgs/edit.svg" alt="" width="9">
+          <span class="btn-text">Editar</span>
+        </a>
+      </div>
+
+      <div class="scroll-area">
+        @for (poke of pokemons(); track poke.id) {
+        <div class="pokemon-card">
+          <div class="pokemon-data">
+            <img [src]="poke.image" alt="" width="150">
+            <span class="pokemon-name">{{ poke.name | titlecase }}</span>
+            <span class="pokemon-types">{{ poke.types.join('/') | titlecase}}</span>
+          </div>
+          <div class="stats-container">
+            @for (s of poke.stats; track s.stat.name) {
+            <div class="stat-row">
+              <span class="stat-label">{{ translateStat(s.stat.name) }}</span>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill" [style.width.%]="getStatPercentage(s.stat.name, s.base_stat)"
+                  [class]="poke.name.toLowerCase()"> </div>
+              </div>
+            </div>
+            }
+          </div>
+        </div>
+        }
+      </div>
+    </div>
+
+  </div>
+</div>

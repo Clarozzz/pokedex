@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 12px;
+  margin-left: 41px;
+  margin-right: 41px;
+}
+
+.logo {
+  width: 138px;
+  height: 51px;
+}
+
+.user-btn {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 134px;
+  height: 30px;
+  background-color: white;
+  border: 1px solid var(--text-blue);
+  border-radius: 10px;
+  color: var(--text-blue);
+  text-decoration: none;
+}
+
+.btn-text {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 22px;
+  margin-right: 13px;
+}
+
+.left-container {
+  display: flex;
+  gap: 47px;
+}
