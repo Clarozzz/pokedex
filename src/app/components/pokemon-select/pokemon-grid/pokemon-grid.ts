@@ -2,10 +2,11 @@ import { Component, computed, inject, input, signal } from '@angular/core';
 import { UserProfile } from '../../../types/UserProfile';
 import { Router } from '@angular/router';
 import { Authservice } from '../../../services/auth/authservice';
+import { TitleCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-pokemon-grid',
-  imports: [],
+  imports: [TitleCasePipe],
   templateUrl: './pokemon-grid.html',
   styleUrl: './pokemon-grid.scss',
 })

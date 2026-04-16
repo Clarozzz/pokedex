@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -6,7 +7,7 @@ import { Injectable } from '@angular/core';
 export class Pokemons {
 
   async getFullPokemons(quantity: number = 9) {
-    const res = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${quantity}`);
+    const res = await fetch(`${environment.apiUrl}?limit=${quantity}`);
     const listData = await res.json();
 
     const pokemonDetails = await Promise.all(

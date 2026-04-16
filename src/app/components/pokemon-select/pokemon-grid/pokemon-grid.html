@@ -60,7 +60,7 @@
 
           <div class="info-badge">
             <span class="number">#{{ poke.id.toString().padStart(3, '0') }}</span>
-            <span class="name">{{ poke.name }}</span>
+            <span class="name">{{ poke.name | titlecase }}</span>
           </div>
         </div>
         }
@@ -68,7 +68,7 @@
 
       <div class="button-container">
         <button class="register-button" [disabled]="isButtonDisabled()" (click)="onSubmit()">
-          Continuar
+          Guardar
         </button>
       </div>
     </div>

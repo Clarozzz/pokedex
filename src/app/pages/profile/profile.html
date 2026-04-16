@@ -2,12 +2,14 @@
 <app-loading />
 } @else {
 <div class="header-container">
-  <div class="title-container">
-    <div class="title">¡Hola {{ user()?.name }}!</div>
-    <a class="edit-user-btn" href="/">
-      <img src="/svgs/edit.svg" alt="" width="9">
-      <span class="btn-text">Editar perfil</span>
-    </a>
+  <div class="content-wrapper">
+    <div class="title-row">
+      <h1 class="title">¡Hola {{ user()?.name }}!</h1>
+      <a class="edit-user-btn" href="/">
+        <img src="/svgs/edit.svg" alt="" width="9">
+        <span class="btn-text">Editar perfil</span>
+      </a>
+    </div>
   </div>
 </div>
 <app-trainer-profile [userData]="user()!" [pokemons]="pokemons()" />
