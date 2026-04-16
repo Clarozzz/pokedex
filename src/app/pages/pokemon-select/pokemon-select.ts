@@ -17,7 +17,7 @@ export class PokemonSelect {
   pokemonList = signal<any[]>([]);
   user = signal<UserProfile | undefined>(undefined)
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   async ngOnInit() {
     this.loading.set(true)
@@ -37,9 +37,7 @@ export class PokemonSelect {
     } catch (error) {
       console.error("Error fetching pokemons")
     } finally {
-      setTimeout(() => {
-        this.loading.set(false)
-      }, 500);
+      this.loading.set(false)
     }
   }
 }

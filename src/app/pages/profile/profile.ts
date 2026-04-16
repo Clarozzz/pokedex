@@ -36,10 +36,7 @@ export class Profile {
     this.user.set(JSON.parse(userData))
     this.pokemons.set(JSON.parse(userPokemons))
 
-    // To simulate loading status
-    setTimeout(() => {
-      this.loading.set(false)
-    }, 500);
+    this.loading.set(false)
 
   }
 }

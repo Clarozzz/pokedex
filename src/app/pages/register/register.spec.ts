@@ -19,4 +19,16 @@ describe('Register', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render the welcome title', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+
+    expect(compiled.querySelector('.title')?.textContent).toContain('¡Hola! Configuremos tu perfil')
+  })
+
+  it('should contiain the register form component', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('app-register-form')).not.toBeNull();
+  })
+
 });
